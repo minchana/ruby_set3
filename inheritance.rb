@@ -25,46 +25,66 @@
 # 									Mysore
 # 									India
 
-
 class Country
-	def initialize
-		puts "This is the Country."
-	end
 
-	def countryName 
-	 # give the country name.
-	end
+   # def initialize
+   #     puts "This is the Country code."
+   # end    
+
+   def countryName
+   	  @countryname = "India"
+    puts "country name-> India"
+  
+   end
+
 end
 
-class City
-	def initialize
-		puts "This is the City"
-	end
+class City < Country
 
-	# define cityName  --> give the city name
-end
+   # def initialize
+   #     puts "This is the City code."
+   # end
 
-
-class Address < Country
-	def initialize
-		puts "This is my address."
-	end
-
-	# define completeAddress --> complete address. 
+   def cityName
+   	@cname="Mysore"
+       puts "City Name -> Mysore"        
+      
+   end
 
 end
 
 class Number < City
-	def initialize
-		puts "This is my address."
-	end
+   # def initialize
+   #     puts "This is the landline number."
+   # end
 
-	# define streetAddress --> '#96, Railway Layout, Vijaynagar'
+   def streetAddress
+   	@sadd="#96, Railway Layout, Vijaynagar"
+       puts "streetAddress -> 96, Railway Layout, Vijaynagar"
+ 
+         end
 
-	def completeAddress
-		puts streetAddress cityName countryName 
-	end
 end
+
+class Address < Number
+   def initialize
+       countryName
+       cityName
+       streetAddress
+       
+      
+   end    
+
+   def completeAddress
+   puts "completeAddress -> #{@sadd} ,#{@cname}, #{@countryname}"
+   end
+end
+
+a=Address.new
+a.completeAddress
+
+
+
 
 
 
